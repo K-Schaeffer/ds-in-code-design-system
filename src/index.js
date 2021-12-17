@@ -1,1 +1,15 @@
-import './components/button'
+import './components/button';
+import './components/card';
+import './components/checkbox';
+import './components/header';
+import './components/icon';
+import './components/input';
+import './components/link';
+import './components/radio';
+import './components/radio/radio-group';
+import './components/select';
+import './components/switch';
+import './components/tag';
+import './components/textarea';
+import './components/tooltip';
+import './components/typography';

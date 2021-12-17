@@ -1,5 +1,13 @@
 @import "../../../utils/scss/helper.scss";
 
+:host-context([mode=dark]){
+  --fill-brand: white;
+}
+
+:host-context([mode=light]){
+  --fill-brand: black;
+}
+
 .header {
   display: flex;
   flex-wrap: wrap;
@@ -10,6 +18,13 @@
   height: 88px;
   @include breakpoint(tablet) {
     padding: 0 var(--spacing-size-sm);
+  }
+  &-brand{
+    svg{
+      path{
+        fill: var(--fill-brand);
+      }
+    }
   }
   &-button {
     cursor: pointer;

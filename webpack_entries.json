@@ -1,5 +1,53 @@
 {
+    "main": {
+        "import": "./src/index.js"
+    },
     "button": {
         "import": "./src/components/button/index.js"
+    },
+    "card": {
+        "import": "./src/components/card/index.js"
+    },
+    "checkbox": {
+        "import": "./src/components/checkbox/index.js"
+    },
+    "header": {
+        "import": "./src/components/header/index.js"
+    },
+    "icon": {
+        "import": "./src/components/icon/index.js"
+    },
+    "input": {
+        "import": "./src/components/input/index.js"
+    },
+    "link": {
+        "import": "./src/components/link/index.js"
+    },
+    "radio": {
+        "import": "./src/components/radio/index.js"
+    },
+    "radio-group": {
+        "import": "./src/components/radio/radio-group.js"
+    },
+    "select": {
+        "import": "./src/components/select/index.js"
+    },
+    "switch": {
+        "import": "./src/components/switch/index.js"
+    },
+    "tag": {
+        "import": "./src/components/tag/index.js"
+    },
+    "textarea": {
+        "import": "./src/components/textarea/index.js"
+    },
+    "tooltip": {
+        "import": "./src/components/tooltip/index.js"
+    },
+    "typography": {
+        "import": "./src/components/typography/index.js"
     }
 }
+
+
+
