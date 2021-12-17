@@ -1,0 +1,82 @@
+@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+
+.switch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // Switch / Structure / Label
+  font-family: var(--font-family-01);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+  color: var(--neutral-elements-03);
+  // Hide native switch
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  // Switch / Structure / Box
+  .switch-checkmark {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    width: 40px;
+    height: 24px;
+    border: var(--border-width-thin) solid var(--neutral-elements-03);
+    border-radius: var(--border-radius-pill);
+    margin-right: var(--spacing-size-nano);
+
+    @include motion-token(switch-slow, '&:hover');
+
+    &:after{
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-radius: var(--border-radius-circular);
+      background-color: var(--neutral-elements-03);
+    }
+  }
+  // Switch / State / Hover
+  &:hover:not(.switch--disabled):not(.switch--checked) {
+    .switch-checkmark {
+      background-color: var(--neutral-surface-02);
+    }
+  }
+
+  // Switch / State / Selected
+  input:checked ~ .switch-checkmark {
+    padding-left: calc(24px - 2px - var(--border-width-thin));
+  }
+  input:checked:not(:disabled) ~ .switch-checkmark {
+    background-color: var(--brand-color-pure);
+    border-color: var(--brand-color-pure);
+    &:after{
+      background-color: var(--contrast-color-brand);
+    }
+  }
+  // Switch / State / Focused
+  input:focus-visible ~ .switch-checkmark {
+    outline-color: var(--highlight-color-pure);
+    outline-width: var(--border-width-thin);
+    outline-style: solid;
+  }
+  // Switch / State / Disabled
+  input:disabled ~ .switch-checkmark {
+    border-color: var(--neutral-elements-01);
+    color: var(--neutral-elements-01);
+    &:after{
+      background-color: var(--neutral-elements-01);
+    }
+  }
+  &--disabled {
+    color: var(--neutral-elements-01);
+  }
+}

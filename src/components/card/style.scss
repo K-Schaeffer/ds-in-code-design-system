@@ -1,0 +1,18 @@
+@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+
+.card {
+  width: 100%;
+  height: 100%;
+  // Card / Structure
+  border-radius: var(--border-radius-md);
+  background-color: var(--neutral-surface-01);
+  // Card / Border
+  border: var(--border-width-hairline) solid var(--neutral-surface-02);
+
+  @include motion-token(switch-slow, '&:hover');
+  // Card / Hover
+  &:hover {
+    // TOKENS RGBA
+    box-shadow: var(--shadow-level-3) rgba(0, 0, 0, var(--opacity-level-light) );
+  }
+}

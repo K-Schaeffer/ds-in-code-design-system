@@ -1,0 +1,42 @@
+@import "../../../utils/scss/helper.scss";
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  padding: 0 var(--spacing-size-xxs);
+  background: var(--neutral-surface-01);
+  height: 88px;
+  @include breakpoint(tablet) {
+    padding: 0 var(--spacing-size-sm);
+  }
+  &-button {
+    cursor: pointer;
+    margin-left: auto;
+    padding: var(--spacing-inset-size-xs);
+    @include breakpoint(tablet) {
+      display: none;
+    }
+  }
+  &-nav{
+    position: absolute;
+    width: 100%;
+    top: 88px;
+    left: 0;
+    max-height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: var(--neutral-surface-01);
+    @include breakpoint(tablet) {
+      padding: var(--spacing-inset-size-xs);
+      width: fit-content;
+      position: initial;
+    }
+  }
+  &--opened{
+    .header-nav{
+      max-height: 100vh;
+    }
+  }
+}

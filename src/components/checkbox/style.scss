@@ -1,0 +1,65 @@
+@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+
+.checkbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // Checkbox / Structure / Label
+  font-family: var(--font-family-01);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+  color: var(--neutral-elements-03);
+  // Hide native checkbox
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  // Checkbox / Structure / Box
+  .checkbox-checkmark {
+    width: 16px;
+    height: 16px;
+    border: var(--border-width-thin) solid var(--neutral-elements-03);
+    border-radius: var(--border-radius-none);
+    margin-right: var(--spacing-size-nano);
+    @include motion-token(switch-slow, '&:hover');
+  }
+  // Checkbox / State / Hover
+  &:hover:not(.checkbox--disabled):not(.checkbox--checked) {
+    .checkbox-checkmark {
+      background-color: var(--neutral-surface-02);
+    }
+  }
+  // Checkbox / State / Selected
+  input:checked:not(:disabled) ~ .checkbox-checkmark {
+    background-color: var(--brand-color-pure);
+    border-color: var(--brand-color-pure);
+    dsc-icon::part(icon){
+      color: var(--contrast-color-brand);
+    }
+  }
+  // Checkbox / State / Focused
+  input:focus-visible ~ .checkbox-checkmark {
+    outline-color: var(--highlight-color-pure);
+    outline-width: var(--border-width-thin);
+    outline-style: solid;
+  }
+  // Checkbox / State / Disabled
+  input:disabled ~ .checkbox-checkmark {
+    border-color: var(--neutral-elements-01);
+    color: var(--neutral-elements-01);
+    dsc-icon::part(icon){
+      color: var(--neutral-elements-01);
+    }
+  }
+  &--disabled {
+    color: var(--neutral-elements-01);
+  }
+}

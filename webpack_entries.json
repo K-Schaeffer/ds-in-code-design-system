@@ -1,0 +1,5 @@
+{
+    "button": {
+        "import": "./src/components/button/index.js"
+    }
+}

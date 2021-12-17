@@ -1,0 +1,48 @@
+@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+
+.link {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  text-decoration: none;
+  // Link / Structure / Label
+  font-family: var(--font-family-01);
+  font-size: var(--font-size-xs);
+  color: var(--neutral-elements-03);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-default);
+
+  &::after {
+    content: '';
+    width: 100%;
+    right: 0;
+    bottom: -2px;
+    position: absolute;
+    border-radius: var(--border-radius-none);
+    height: var(--border-width-thin);
+    background-color: var(--neutral-elements-03);
+
+    @include motion-token(switch-slow, '&:hover');
+  }
+  // Link / State / Hover
+  &:hover{
+    &::after{
+      width: 50%;
+    }
+  }
+  // Link / State / Focused
+  &:focus{
+    outline-color: var(--highlight-color-pure);
+    outline-width: var(--border-width-thin);
+    outline-style: solid;
+  }
+  // Link / State / Disabled
+  &--disabled{
+    pointer-events: none;
+    cursor: default;
+    color: var(--neutral-elements-01);
+    &::after{
+      background-color: var(--neutral-elements-01);
+    }
+  }
+}

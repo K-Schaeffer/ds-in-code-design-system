@@ -1,0 +1,66 @@
+@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+
+.button {
+  border: none;
+  cursor: pointer;
+  // Button / Structure / Label
+  font-family: var(--font-family-01);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-default);
+  color: var(--contrast-color-brand);
+  // Button / Structure / Shape
+  background-color: var(--brand-color-pure);
+  border-radius: var(--border-radius-sm);
+  padding: 0 var(--spacing-size-xxs);
+  height: 48px;
+  min-width: 160px;
+  @include motion-token(switch-slow, '&:hover');
+
+  // Button / State / Focused
+  &:focus-visible{
+    outline-color: var(--highlight-color-pure);
+    outline-width: var(--border-width-thin);
+  }
+
+  &:not(&--loading){
+    // Button / State / Hover
+    &:hover{
+      color: var(--brand-color-02);
+      background-color: var(--brand-color-01);
+    }
+    // Button / State / Disabled
+    &:disabled {
+      cursor: initial;
+      color: var(--neutral-elements-01);
+      background-color: var(--neutral-surface-02);
+    }
+  }
+
+  // Button / State / Loading
+  &--loading{
+    color: transparent;
+    position: relative;
+    cursor: initial;
+    &::after{
+      background: white;
+      content: "";
+      height: 2px;
+      width: 0;
+      left: 50%;
+      display: block;
+      margin: auto;
+      position: absolute;
+      top: calc(50% - 1px);
+      animation: loading 1s linear infinite;
+    }
+  }
+}
+
+@keyframes loading {
+  100% {
+    width: 10px;
+    left: calc(50% - 5px);
+  }
+}
+

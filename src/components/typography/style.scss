@@ -1,0 +1,62 @@
+@import "../../../utils/scss/helper.scss";
+
+.typography{
+  font-family: var(--font-family-01);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+  color: var(--neutral-elements-03);
+  &-heading{
+    &--display{
+      font-size: var(--font-size-xxxl);
+      @include breakpoint(tablet) {
+        font-size: var(--font-size-xxxl);
+      }
+      @include breakpoint(laptop) {
+        font-size: var(--font-size-giant);
+      }
+      @include breakpoint(desktop) {
+        font-size: var(--font-size-giant);
+      }
+    }
+    &--xl{
+      font-size: var(--font-size-xxl);
+      font-weight: var(--font-weight-bold);
+      @include breakpoint(tablet) {
+        font-size: var(--font-size-xxl);
+      }
+      @include breakpoint(laptop) {
+        font-size: var(--font-size-xxxl);
+      }
+      @include breakpoint(desktop) {
+        font-size: var(--font-size-xxxl);
+      }
+    }
+    &--lg{
+      font-size: var(--font-size-xl);
+      @include breakpoint(tablet) {
+        font-size: var(--font-size-xl);
+      }
+      @include breakpoint(laptop) {
+        font-size: var(--font-size-xxl);
+      }
+      @include breakpoint(desktop) {
+        font-size: var(--font-size-xxl);
+      }
+    }
+    &--md{
+      font-size: var(--font-size-lg);
+    }
+    &--sm{
+      font-size: var(--font-size-md);
+    }
+    &--xs{
+      font-size: var(--font-size-xs);
+    }
+  }
+  &-paragraph{
+    font-size: var(--font-size-xs);
+  }
+  &-caption{
+    font-size: var(--font-size-xxs);
+  }
+}

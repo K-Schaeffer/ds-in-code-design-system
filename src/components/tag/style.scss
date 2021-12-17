@@ -1,0 +1,17 @@
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  // Tag / Structure / Label
+  color: var(--highlight-color-02);
+  font-size: var(--font-size-xxs);
+  font-family: var(--font-family-01);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+  // Tag / Structure / Shape
+  background-color: var(--highlight-color-01);
+  border-radius: var(--border-radius-pill);
+  padding: 0 var(--spacing-size-xxxs);
+  height: 22px;
+}

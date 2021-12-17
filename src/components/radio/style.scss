@@ -1,0 +1,66 @@
+@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+
+.radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  // Radio / Structure / Label
+  font-family: var(--font-family-01);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-default);
+  color: var(--neutral-elements-03);
+  // Hide native Radio
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  // Radio / Structure / Box
+  .radio-checkmark {
+    width: 16px;
+    height: 16px;
+    border: var(--border-width-thin) solid var(--neutral-elements-03);
+    border-radius: var(--border-radius-circular);
+    margin-right: var(--spacing-size-nano);
+
+    @include motion-token(switch-slow, '&:hover');
+  }
+  // Radio / State / Hover
+  &:hover:not(.radio--disabled):not(.radio--checked) {
+    .radio-checkmark {
+      background-color: var(--neutral-surface-02);
+    }
+  }
+  // Radio / State / Selected
+  input:checked:not(:disabled) ~ .radio-checkmark {
+    background-color: var(--brand-color-pure);
+    border-color: var(--brand-color-pure);
+    dsc-icon::part(icon){
+      color: var(--contrast-color-brand);
+    }
+  }
+  // Radio / State / Focused
+  input:focus-visible ~ .radio-checkmark {
+    outline-color: var(--highlight-color-pure);
+    outline-width: var(--border-width-thin);
+    outline-style: solid;
+  }
+  // Radio / State / Disabled
+  input:disabled ~ .radio-checkmark {
+    border-color: var(--neutral-elements-01);
+    color: var(--neutral-elements-01);
+    dsc-icon::part(icon){
+      color: var(--neutral-elements-01);
+    }
+  }
+  &--disabled {
+    color: var(--neutral-elements-01);
+  }
+}
