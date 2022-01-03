@@ -8,6 +8,14 @@
   --fill-brand: black;
 }
 
+:host([mode=dark]){
+  --fill-brand: white;
+}
+
+:host([mode=light]){
+  --fill-brand: black;
+}
+
 .header {
   display: flex;
   flex-wrap: wrap;

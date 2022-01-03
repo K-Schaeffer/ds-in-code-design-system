@@ -3,9 +3,11 @@ import { classMap } from 'lit/directives/class-map.js';
 import style from './style.scss';
 import Brand from './Brand.js';
 import { createSvgElement } from '../../../utils/js/svgHelper'
+import { hostContextHelper } from '../../../utils/js/hostContextHelper'
 import menu from '@meiuca/dsc-assets/dist/assets/icons/menu';
 import close from '@meiuca/dsc-assets/dist/assets/icons/close';
 import '../icon'
+
 
 export default class DscHeader extends LitElement {
 
@@ -22,6 +24,11 @@ export default class DscHeader extends LitElement {
   constructor() {
     super();
     this.opened = false;
+
+  }
+
+  updated() {
+    hostContextHelper(this);
   }
 
   _handleChange() {
