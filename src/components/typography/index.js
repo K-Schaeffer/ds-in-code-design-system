@@ -38,6 +38,7 @@ export default class DscTypography extends LitElement {
   renderHeading() {
     return html`${
         unsafeHTML(`<${this.headingPatternVariant}
+                    part="typography"
                     class="typography typography-heading typography-heading--${this.headingPatternSize}">
                         <slot></slot>
                     </${this.headingPatternVariant}>`)}`;
@@ -45,11 +46,11 @@ export default class DscTypography extends LitElement {
 
 
   renderParagraph() {
-    return html`<p class="typography typography-paragraph"><slot></slot></p>`;
+    return html`<p part="typography" class="typography typography-paragraph"><slot></slot></p>`;
   }
 
   renderCaption() {
-    return html`<span class="typography typography-caption"><slot></slot></span>`;
+    return html`<span part="typography" class="typography typography-caption"><slot></slot></span>`;
   }
 
   render() {
