@@ -59,6 +59,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   }
   &-paragraph{
     font-size: var(--font-size-xs);
+    line-height: var(--line-height-lg);
   }
   &-caption{
     font-size: var(--font-size-xxs);

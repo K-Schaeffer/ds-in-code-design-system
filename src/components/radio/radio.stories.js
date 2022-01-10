@@ -16,7 +16,7 @@ export const Radio = ({
 
 
   function _handleChange(e) {
-    action('lftChange')({ value: e.detail.value });
+    action('dscChange')({ value: e.detail.value });
 }
 
   return html`
@@ -26,12 +26,14 @@ export const Radio = ({
 
       <dsc-radio
         .label="${label}"
+        value="Radio 1"
         checked
         ?disabled="${disabled}"
       ></dsc-radio>
 
       <dsc-radio
         .label="${label}"
+        value="Radio 2"
         ?disabled="${disabled}"
       ></dsc-radio>
     </dsc-radio-group>
