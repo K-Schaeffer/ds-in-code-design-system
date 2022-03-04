@@ -97,18 +97,20 @@ export class DscSelect extends LitElement {
         @keyup="${(event) => this._handleKeyup(event)}"
       >
         <label for="${this.id}">${this.label}</label>
-        <select
-          id="${this.id}"
-          .name="${this.name}"
-          .value="${this.value}"
-          ?required="${this.required}"
-          ?disabled="${this.disabled}"
-          @focus="${this._handleFocus}"
-          @blur="${this._handleBlur}"
-          @input="${(event) => this._handleChange(event)}"
-        >
-          <option value="${this.placeholder}" disabled selected hidden>${this.placeholder}</option>
-        </select>
+        <div class="select-wrapper">
+          <select
+            id="${this.id}"
+            .name="${this.name}"
+            .value="${this.value}"
+            ?required="${this.required}"
+            ?disabled="${this.disabled}"
+            @focus="${this._handleFocus}"
+            @blur="${this._handleBlur}"
+            @input="${(event) => this._handleChange(event)}"
+          >
+            <option value="" disabled selected hidden>${this.placeholder}</option>
+          </select>
+        </div>
         <span class="select__helper-text">
           ${this.helperText}
         </span>

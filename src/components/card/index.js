@@ -20,7 +20,7 @@ export default class DscCard extends LitElement {
 
   render() {
     return html`
-      <div part="card" class="card" tabindex=0>
+      <div part="card" class="card" tabindex=0 @click=${this._handleClick}>
         <slot></slot>
       </div>
     `

@@ -38,7 +38,7 @@ export const Select = ({
       .placeholder="${placeholder}"
       .helperText="${helperText}"
       ?required="${required}"
-      ?disabled="${disabled}"
+      ?disabled=${disabled}
       ?error="${error}"
       @dscFocus="${_handleFocus}"
       @dscBlur="${_handleBlur}"
@@ -59,6 +59,7 @@ Select.args = {
   label: 'Label',
   placeholder: 'Input text',
   helperText: 'Helper text',
+  required: true,
   disabled: false,
   error: false,
 }
@@ -109,6 +110,15 @@ Select.argTypes = {
           defaultValue: { summary: 'false' }
       }
   },
+  required: {
+    name: 'Required',
+    description: 'Define se o input será obrigatório',
+    table: {
+        category: 'Modifiers',
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' }
+    }
+},
 
   error: {
       name: 'Error',

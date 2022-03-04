@@ -12,7 +12,7 @@
     line-height: var(--line-height-default);
     padding-bottom: var(--spacing-size-quarck);
   }
-  select {
+  .select-wrapper {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -21,36 +21,53 @@
     height: 48px;
     padding: 0 var(--spacing-inset-size-xs);
     box-sizing: border-box;
-    color: var(--neutral-elements-03);
-    font-size: var(--font-size-xs);
-    font-family: var(--font-family-01);
-    line-height: var(--line-height-default);
-    font-weight: var(--font-weight-regular);
+
+    select{
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+
+      color: var(--neutral-elements-03);
+      font-size: var(--font-size-xs);
+      font-family: var(--font-family-01);
+      line-height: var(--line-height-default);
+      font-weight: var(--font-weight-regular);
+
+      &:focus{
+        outline: none;
+      }
+
+      &:invalid {
+        color: var(--neutral-elements-02);
+      }
+    }
 
     @include motion-token(switch-slow, '&:hover');
-    &:focus{
+    &:focus-within{
       outline-width: 0;
+      outline-style: solid;
       outline-color: var(--highlight-color-pure);
       outline-offset: var(--border-width-thin);
     }
   }
 
   &:hover{
-    select {
+    .select-wrapper {
       background-color: var(--neutral-surface-02);
     }
   }
 
   &--focus{
-    select{
-      &:focus{
+    .select-wrapper{
+      &:focus-within{
         outline-width: var(--border-width-thin);
       }
     }
   }
 
   &--error{
-    select{
+    .select-wrapper{
       background-color: var(--feedback-color-warning-01);
       border-color: var(--feedback-color-warning-pure);
     }
@@ -60,12 +77,14 @@
     label{
       color: var(--neutral-elements-01);
     }
-    select{
+    .select-wrapper{
       background-color: var(--neutral-surface-02);
       border-color: var(--neutral-elements-01);
       color: var(--neutral-elements-01);
-      &::placeholder {
-        color: var(--neutral-elements-01);
+      select{
+        &:invalid {
+          color: var(--neutral-elements-01);
+        }
       }
     }
     .select__helper-text {
