@@ -1,9 +1,10 @@
 @import 'ds-in-code-design-tokens/dist/scss/mixins.scss';
 
-.select {
+.dscSelect {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+
   label {
     color: var(--neutral-elements-03);
     font-size: var(--font-size-xxs);
@@ -12,7 +13,8 @@
     line-height: var(--line-height-default);
     padding-bottom: var(--spacing-size-quarck);
   }
-  .select-wrapper {
+
+  .dscSelect__wrapper {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -22,7 +24,7 @@
     padding: 0 var(--spacing-inset-size-xs);
     box-sizing: border-box;
 
-    select{
+    select {
       width: 100%;
       height: 100%;
       border: none;
@@ -34,7 +36,7 @@
       line-height: var(--line-height-default);
       font-weight: var(--font-weight-regular);
 
-      &:focus{
+      &:focus {
         outline: none;
       }
 
@@ -43,56 +45,60 @@
       }
     }
 
-    @include motion-token(switch-slow, '&:hover');
-    &:focus-within{
+    &:focus-within {
       outline-width: 0;
       outline-style: solid;
       outline-color: var(--highlight-color-pure);
       outline-offset: var(--border-width-thin);
     }
+
+    @include motion-token(switch-slow, '&:hover');
   }
 
-  &:hover{
-    .select-wrapper {
+  &:hover {
+    .dscSelect__wrapper {
       background-color: var(--neutral-surface-02);
     }
   }
 
-  &--focus{
-    .select-wrapper{
-      &:focus-within{
+  &--focus {
+    .dscSelect__wrapper {
+      &:focus-within {
         outline-width: var(--border-width-thin);
       }
     }
   }
 
-  &--error{
-    .select-wrapper{
+  &--error {
+    .dscSelect__wrapper {
       background-color: var(--feedback-color-warning-01);
       border-color: var(--feedback-color-warning-pure);
     }
   }
 
   &--disabled {
-    label{
+    label {
       color: var(--neutral-elements-01);
     }
-    .select-wrapper{
+
+    .dscSelect__wrapper {
       background-color: var(--neutral-surface-02);
       border-color: var(--neutral-elements-01);
       color: var(--neutral-elements-01);
-      select{
+      
+      select {
         &:invalid {
           color: var(--neutral-elements-01);
         }
       }
     }
-    .select__helper-text {
+
+    .dscSelect__helperText {
       color: var(--neutral-elements-01);
     }
   }
 
-  &__helper-text{
+  &__helperText {
     padding-top: var(--spacing-size-nano);
     color: var(--neutral-elements-03);
     font-size: var(--font-size-xxs);

@@ -1,5 +1,5 @@
 import { html } from 'lit'
-import { action } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions'
 import './index.js'
 
 export default {
@@ -17,16 +17,16 @@ export const Select = ({
   error
 }) => {
 
-  function _handleFocus() {
-    action('dscFocus')({ value: 'Focus event' });
+  function _handleFocus () {
+    action('dscFocus') ({ value: 'Focus event' })
   }
 
-  function _handleBlur() {
-      action('dscBlur')({ value: 'Blur event' });
+  function _handleBlur () {
+      action('dscBlur') ({ value: 'Blur event' });
   }
 
-  function _handleChange(e) {
-      action('dscChange')({ value: e.detail.value });
+  function _handleChange (e) {
+      action('dscChange') ({ value: e.detail.value });
   }
 
   return html`
@@ -40,9 +40,9 @@ export const Select = ({
       ?required="${required}"
       ?disabled=${disabled}
       ?error="${error}"
-      @dscFocus="${_handleFocus}"
-      @dscBlur="${_handleBlur}"
-      @dscChange="${(event) => _handleChange(event)}"
+      @dsc-focus="${_handleFocus}"
+      @dsc-blur="${_handleBlur}"
+      @dsc-change="${(event) => _handleChange(event)}"
     >
       <option value="1">Label 1</option>
       <option value="2">Label 2</option>

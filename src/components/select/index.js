@@ -1,14 +1,14 @@
 import { LitElement, html, unsafeCSS } from 'lit'
-import {classMap} from 'lit/directives/class-map.js';
-import style from './style.scss';
+import { classMap } from 'lit/directives/class-map.js'
+import style from './select.scss'
 
 export class DscSelect extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  static get properties() {
+  static get properties () {
     return {
       id: { type: String },
       name: { type: String },
@@ -22,82 +22,89 @@ export class DscSelect extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-    this.id = '';
-    this.name = '';
-    this.value = '';
-    this.label = '';
-    this.placeholder = '';
-    this.helperText = '';
-    this.required = '';
-    this.disabled = '';
-    this.error = '';
+  get selectContainer () {
+    return this.shadowRoot.querySelector('.dscSelect')
   }
 
-  get selectContainer() {
-    return this.shadowRoot.querySelector('.select');
+  get slot () {
+    return this.shadowRoot?.querySelector('slot')
   }
 
-  get select() {
-    return this.shadowRoot.querySelector('select');
+  get select () {
+    return this.shadowRoot.querySelector('select')
   }
 
-  firstUpdated(){
-    const slot = this.shadowRoot?.querySelector('slot');
-		const childNodes = slot?.assignedNodes({flatten: true});
-		Array.prototype.map?.call(childNodes, (node) => {
-			if(node.nodeName === 'OPTION') {
-        this.select?.appendChild(node);
+  constructor () {
+    super()
+    
+    this.id = ''
+    this.name = ''
+    this.value = ''
+    this.label = ''
+    this.placeholder = ''
+    this.helperText = ''
+    this.required = false
+    this.disabled = false
+    this.error = false
+  }
+
+  firstUpdated () {
+		const childNodes = this.slot?.assignedNodes({ flatten: true })
+
+		childNodes.forEach(node => {
+			if (node.nodeName === 'OPTION') {
+        this.select?.appendChild(node)
 			}
-		});
+		})
   }
 
-  _handleFocus() {
-    this.dispatchEvent(new CustomEvent('dscFocus', {
+  _handleFocus () {
+    this.dispatchEvent(new CustomEvent('dsc-focus', {
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
-  _handleBlur() {
-    this.selectContainer.classList.remove('select--focus');
-    this.dispatchEvent(new CustomEvent('dscBlur', {
+  _handleBlur () {
+    console.log('aqui')
+    this.selectContainer.classList.remove('dscSelect--focus')
+
+    this.dispatchEvent(new CustomEvent('dsc-blur', {
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
-  _handleChange(event) {
-    this.value = event.target.value;
-    this.dispatchEvent(new CustomEvent('dscChange', {
+  _handleChange (event) {
+    this.value = event.target.value
+    
+    this.dispatchEvent(new CustomEvent('dsc-change', {
       detail: {
         value: this.value
       },
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
-  _handleKeyup(event) {
+  _handleKeyup (event) {
     if (event.code === 'Tab') {
-      this.selectContainer.classList.add('select--focus');
+      this.selectContainer.classList.add('dscSelect--focus');
     }
   }
-
 
   render () {
     return html`
       <div class="${
         classMap({
-          [`select`]: true,
-          [`select--disabled`]: this.disabled,
-          [`select--error`]: this.error
+          [`dscSelect`]: true,
+          [`dscSelect--disabled`]: this.disabled,
+          [`dscSelect--error`]: this.error
         })}"
         @keyup="${(event) => this._handleKeyup(event)}"
       >
         <label for="${this.id}">${this.label}</label>
-        <div class="select-wrapper">
+        <div class="dscSelect__wrapper">
           <select
             id="${this.id}"
             .name="${this.name}"
@@ -111,13 +118,15 @@ export class DscSelect extends LitElement {
             <option value="" disabled selected hidden>${this.placeholder}</option>
           </select>
         </div>
-        <span class="select__helper-text">
+        <span class="dscSelect__helperText">
           ${this.helperText}
         </span>
       </div>
-      <slot></slot>
+      <slot>
     `
   }
 }
 
-if (!customElements.get('dsc-select')) { customElements.define('dsc-select', DscSelect); }
+if (!customElements.get('dsc-select')) { 
+  customElements.define('dsc-select', DscSelect)
+}
