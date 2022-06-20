@@ -1,3 +1,5 @@
+// Simulando que o SVG vem de fora para utilizar utilitário na ponta
+
 const Brand = `<svg width="112" height="32" viewBox="0 0 112 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_236_2031)">
 <path d="M29.2427 26.7816V13.6185L26.1056 22.3032H24.1327L21.1572 13.8001V26.7816H17.5996V5.59961H20.8015L25.2647 16.7656L29.5985 5.59961H32.8974V26.7816H29.2427Z" fill="black"/>
@@ -13,4 +15,5 @@ const Brand = `<svg width="112" height="32" viewBox="0 0 112 32" fill="none" xml
 </clipPath>
 </defs>
 </svg>`
-export default Brand;
+
+export default Brand

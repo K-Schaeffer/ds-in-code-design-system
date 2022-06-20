@@ -1,5 +1,5 @@
-function createSvgElement(svgStr) {
-    return document.createRange().createContextualFragment(`${ svgStr }`);
+function createSvgElement (svgStr) {
+  return document.createRange().createContextualFragment(`${ svgStr }`)
 }
 
-export { createSvgElement };
+export { createSvgElement }

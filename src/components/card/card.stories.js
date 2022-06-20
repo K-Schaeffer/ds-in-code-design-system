@@ -1,5 +1,5 @@
-import { html } from 'lit';
-import './index.js';
+import { html } from 'lit'
+import './index.js'
 
 export default {
   title: 'Components/Card'
@@ -19,7 +19,7 @@ export const Card = () => {
 }
 
 Card.argTypes = {
-  dscClick: {
+  'dsc-click': {
       description: 'Evento emitido ao clicar no card',
       table: {
           type: { summary: 'void' },

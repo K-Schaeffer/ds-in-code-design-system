@@ -1,6 +1,6 @@
-import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
+import { html } from 'lit'
+import { action } from '@storybook/addon-actions'
+import { useArgs } from '@storybook/client-api'
 import './index.js'
 
 export default {
@@ -13,11 +13,11 @@ export const Checkbox = ({
   disabled
 }) => {
 
-  const [, updateArgs] = useArgs();
+  const [, updateArgs] = useArgs()
 
   function _handleChange(e) {
-    updateArgs({ checked: e.detail.checked });
-    action('dscChange')({ checked: e.detail.checked });
+    updateArgs({ checked: e.detail.checked })
+    action('dsc-change') ({ checked: e.detail.checked })
 }
 
   return html`
@@ -25,7 +25,7 @@ export const Checkbox = ({
       .label="${label}"
       ?checked="${checked}"
       ?disabled="${disabled}"
-      @dscChange="${(event) => _handleChange(event)}"
+      @dsc-change="${(event) => _handleChange(event)}"
     ></dsc-checkbox>
 
   `

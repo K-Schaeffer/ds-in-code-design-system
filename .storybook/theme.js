@@ -1,5 +1,5 @@
-import { create } from '@storybook/theming';
-import logo from './dsc-logo.svg'
+import { create } from '@storybook/theming'
+import brandImage from './dsc-logo.svg'
 
 export default create({
   base: 'light',
@@ -11,5 +11,5 @@ export default create({
   colorPrimary: '#F5F5F5',
   brandTitle: 'Lift DS',
   brandUrl: '/',
-  brandImage: logo
+  brandImage
 })
