@@ -33,4 +33,4 @@ module.exports = () => {
     }
 
     return merge(common, dev);
-};
+}

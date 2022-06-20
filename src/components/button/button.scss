@@ -15,20 +15,20 @@
   padding: 0 var(--spacing-size-xxs);
   height: 48px;
   min-width: 160px;
-  @include motion-token(switch-slow, '&:hover');
 
   // Button / State / Focused
-  &:focus-visible{
+  &:focus-visible{ 
     outline-color: var(--highlight-color-pure);
     outline-width: var(--border-width-thin);
   }
 
-  &:not(&--loading){
+  &:not(&--loading) {
     // Button / State / Hover
     &:hover{
       color: var(--brand-color-02);
       background-color: var(--brand-color-01);
     }
+
     // Button / State / Disabled
     &:disabled {
       cursor: initial;
@@ -38,7 +38,7 @@
   }
 
   // Button / State / Loading
-  &--loading{
+  &--loading {
     color: transparent;
     position: relative;
     cursor: initial;
@@ -55,6 +55,8 @@
       animation: loading 1s linear infinite;
     }
   }
+
+  @include motion-token(switch-slow, '&:hover');
 }
 
 @keyframes loading {

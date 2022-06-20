@@ -16,7 +16,7 @@ export class DscButton extends LitElement {
     }
   }
 
-  constructor() {
+  constructor () {
     super()
 
     this.disabled = false
@@ -49,7 +49,6 @@ export class DscButton extends LitElement {
     `
   }
 }
-
 
 if (!customElements.get('dsc-button')) {
   customElements.define('dsc-button', DscButton)
