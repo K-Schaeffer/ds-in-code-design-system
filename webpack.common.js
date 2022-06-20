@@ -44,6 +44,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'components/[name].js',
     libraryTarget: 'umd',
-    library: "dsc-design-system-core"
+    library: "ds-in-code-design-system"
   }
 }

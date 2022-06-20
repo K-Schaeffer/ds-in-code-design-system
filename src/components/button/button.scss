@@ -1,6 +1,6 @@
-@import '@meiuca/dsc-design-tokens/dist/scss/mixins.scss';
+@import 'ds-in-code-design-tokens/dist/scss/mixins.scss';
 
-.button {
+.dscButton {
   border: none;
   cursor: pointer;
   // Button / Structure / Label
@@ -63,4 +63,3 @@
     left: calc(50% - 5px);
   }
 }
-

@@ -19,12 +19,12 @@ module.exports = () => {
           new CopyPlugin({
             patterns: [
                 {
-                  from: "node_modules/@meiuca/dsc-design-tokens/dist/css/globals.css",
+                  from: "node_modules/ds-in-code-design-tokens/dist/css/globals.css",
                   to: "tokens/globals.css"
                 },
                 {
                   from: `**/**/*.css`,
-                  context: `node_modules/@meiuca/dsc-design-tokens/dist/css`,
+                  context: `node_modules/ds-in-code-design-tokens/dist/css`,
                   to: "tokens/[path]/[name][ext]"
                 }
             ]

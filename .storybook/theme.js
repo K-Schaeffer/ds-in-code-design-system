@@ -3,8 +3,6 @@ import logo from './dsc-logo.svg'
 
 export default create({
   base: 'light',
-
-
   appBg: '#000000',
   appBorderRadius: '16px',
   textColor: '#292929',
@@ -14,5 +12,4 @@ export default create({
   brandTitle: 'Lift DS',
   brandUrl: '/',
   brandImage: logo
-
-});
+})

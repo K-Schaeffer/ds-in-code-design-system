@@ -1,7 +1,7 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import style from './style.scss';
-import bullet from '@meiuca/dsc-assets/dist/assets/icons/bullet';
+import bullet from 'ds-in-code-assets/dist/assets/icons/bullet';
 import '../icon'
 
 export default class DscRadio extends LitElement {

@@ -1,6 +1,6 @@
 import { html } from 'lit';
-import options from '@meiuca/dsc-assets/dist/assets/icons/exported-assets-list';
-import * as icons from '@meiuca/dsc-assets/dist/assets/icons';
+import options from 'ds-in-code-assets/dist/assets/icons/exported-assets-list';
+import * as icons from 'ds-in-code-assets/dist/assets/icons';
 import './index';
 
 export default {

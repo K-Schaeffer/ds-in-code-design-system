@@ -10,7 +10,6 @@ export const Button = ({
   disabled,
   loading
 }) => {
-
   return html`
     <dsc-button
       ?disabled="${disabled}"
@@ -55,8 +54,7 @@ Button.argTypes = {
           defaultValue: { summary: 'false' }
       }
   },
-
-  dscClick: {
+  'dsc-click': {
       description: 'Evento emitido ao clicar no botão',
       table: {
           type: { summary: 'void' },

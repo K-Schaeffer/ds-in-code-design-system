@@ -4,8 +4,8 @@ import style from './style.scss';
 import Brand from './Brand.js';
 import { createSvgElement } from '../../../utils/js/svgHelper'
 import { hostContextHelper } from '../../../utils/js/hostContextHelper'
-import menu from '@meiuca/dsc-assets/dist/assets/icons/menu';
-import close from '@meiuca/dsc-assets/dist/assets/icons/close';
+import menu from 'ds-in-code-assets/dist/assets/icons/menu';
+import close from 'ds-in-code-assets/dist/assets/icons/close';
 import '../icon'
 
 

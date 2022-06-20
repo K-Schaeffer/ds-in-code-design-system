@@ -1,15 +1,15 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import {classMap} from 'lit/directives/class-map.js';
-import {ifDefined} from 'lit/directives/if-defined.js';
-import style from './style.scss';
-
+import { LitElement, html, unsafeCSS } from 'lit'
+import { classMap } from 'lit/directives/class-map.js'
+import { ifDefined } from 'lit/directives/if-defined.js'
+import style from './button.scss'
 
 export class DscButton extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
-  static get properties() {
+
+  static get properties () {
     return {
       disabled: { type: Boolean },
       loading: { type: Boolean }
@@ -17,25 +17,26 @@ export class DscButton extends LitElement {
   }
 
   constructor() {
-    super();
-    this.disabled = false;
-    this.loading = false;
+    super()
+
+    this.disabled = false
+    this.loading = false
   }
 
-  _handleClick() {
-    this.dispatchEvent(new CustomEvent('dscClick', {
+  _handleClick () {
+    this.dispatchEvent(new CustomEvent('dsc-click', {
         bubbles: true,
         composed: true
-    }));
+    }))
   }
 
-  render() {
+  render () {
     return html`
       <button
         class=${
           classMap({
-            [`button`]: true,
-            [`button--loading`]: this.loading,
+            [`dscButton`]: true,
+            [`dscButton--loading`]: this.loading,
           })
         }
         aria-disabled="${this.disabled}"
@@ -43,11 +44,13 @@ export class DscButton extends LitElement {
         ?disabled=${this.disabled}
         @click=${this._handleClick}
       >
-        <slot></slot>
+        <slot>
       </button>
     `
   }
 }
 
 
-if (!customElements.get('dsc-button')) { customElements.define('dsc-button', DscButton); }
+if (!customElements.get('dsc-button')) {
+  customElements.define('dsc-button', DscButton)
+}

@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "ds-in-code-assets": "0.0.1",
-    "ds-in-code-design-tokens": "0.0.1",
+    "ds-in-code-design-tokens": "^0.0.2",
     "lit": "^2.0.2"
   },
   "devDependencies": {
