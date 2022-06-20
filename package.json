@@ -1,6 +1,8 @@
 {
-  "name": "@meiuca/dsc-design-system",
-  "version": "0.0.8",
+  "name": "ds-in-code-design-system",
+  "description": "Design System Core library forked from @Meiuca during the Design System In Code course",
+  "version": "0.0.1",
+  "author": "Kauan Schaeffer - <kcb.schaeffer@gmail.com>",
   "main": "index.js",
   "license": "MIT",
   "repository": {
@@ -20,8 +22,8 @@
     "test:watch": "web-test-runner src/**/*.test.js --node-resolve --watch"
   },
   "dependencies": {
-    "@meiuca/dsc-assets": "^1.0.1",
-    "@meiuca/dsc-design-tokens": "^1.0.0",
+    "ds-in-code-assets": "0.0.1",
+    "ds-in-code-design-tokens": "0.0.1",
     "lit": "^2.0.2"
   },
   "devDependencies": {
