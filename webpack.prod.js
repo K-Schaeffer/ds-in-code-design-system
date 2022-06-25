@@ -16,7 +16,8 @@ module.exports = () => {
           /lit\/decorators/gi,
           /lit\/directives\/class-map/gi,
           /lit\/directives\/if-defined/gi,
-          /@meiuca/gi,
+          /ds-in-code-assets/gi,
+          /ds-in-code-design-tokens/gi
       ]
   }
 
