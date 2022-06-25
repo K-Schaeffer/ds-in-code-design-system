@@ -1,4 +1,4 @@
-.tooltip {
+.dscTooltip {
   position: relative;
   display: flex;
 
@@ -23,19 +23,19 @@
   &--top {
     justify-content: center;
 
-    .tooltip__label {
+    .dscTooltip__label {
       bottom: 100%;
     }
 
     &-start {
-      .tooltip__label {
+      .dscTooltip__label {
         bottom: 100%;
         left: 0;
       }
     }
 
     &-end {
-      .tooltip__label {
+      .dscTooltip__label {
         bottom: 100%;
         right: 0;
       }
@@ -43,14 +43,14 @@
   }
 
   &--right {
-    .tooltip__label {
+    .dscTooltip__label {
       left: 100%;
     }
 
     &-start {
       align-items: flex-start;
 
-      .tooltip__label {
+      .dscTooltip__label {
         left: 100%;
       }
     }
@@ -58,7 +58,7 @@
     &-end {
       align-items: flex-end;
 
-      .tooltip__label {
+      .dscTooltip__label {
         left: 100%;
       }
     }
@@ -67,19 +67,19 @@
   &--bottom {
       justify-content: center;
 
-      .tooltip__label {
+      .dscTooltip__label {
           top: 100%;
       }
 
       &-start {
-          .tooltip__label {
+          .dscTooltip__label {
               top: 100%;
               left: 0;
           }
       }
 
       &-end {
-          .tooltip__label {
+          .dscTooltip__label {
               top: 100%;
               right: 0;
           }
@@ -87,13 +87,13 @@
   }
 
   &--left {
-      .tooltip__label {
+      .dscTooltip__label {
           right: 100%;
       }
 
       &-start {
           align-items: flex-start;
-          .tooltip__label {
+          .dscTooltip__label {
             right: 100%;
           }
       }
@@ -101,14 +101,14 @@
       &-end {
           align-items: flex-end;
 
-          .tooltip__label {
+          .dscTooltip__label {
             right: 100%;
           }
       }
   }
 
   &:hover {
-    .tooltip__label {
+    .dscTooltip__label {
         visibility: visible;
         display: inline-flex;
     }

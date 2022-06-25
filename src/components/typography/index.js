@@ -1,11 +1,11 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import style from './style.scss';
+import { LitElement, html, unsafeCSS } from 'lit'
+import { unsafeHTML } from 'lit/directives/unsafe-html.js'
+import style from './tipography.scss'
 
 export default class DscTypography extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
   static get properties() {
@@ -16,26 +16,27 @@ export default class DscTypography extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-    this.component = '';
-    this.variant = '';
-    this.size = '';
+  constructor () {
+    super()
+
+    this.component = ''
+    this.variant = ''
+    this.size = ''
   }
 
-  get headingPatternSize() {
+  get headingPatternSize () {
     return ['xs', 'sm', 'md', 'lg', 'xl', 'display'].includes(this.size) ? this.size : 'display';
   }
 
-  get headingPatternVariant() {
+  get headingPatternVariant () {
       return ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(this.variant) ? this.variant : 'h1';
   }
 
-  get patternComponent() {
+  get patternComponent () {
       return ['heading', 'paragraph', 'caption'].includes(this.component) ? this.component : 'heading';
   }
 
-  renderHeading() {
+  renderHeading () {
     return html`${
         unsafeHTML(`<${this.headingPatternVariant}
                     part="typography"
@@ -45,15 +46,15 @@ export default class DscTypography extends LitElement {
   }
 
 
-  renderParagraph() {
+  renderParagraph () {
     return html`<p part="typography" class="typography typography-paragraph"><slot></slot></p>`;
   }
 
-  renderCaption() {
+  renderCaption () {
     return html`<span part="typography" class="typography typography-caption"><slot></slot></span>`;
   }
 
-  render() {
+  render () {
     return html`${
         this.patternComponent === 'heading' ? this.renderHeading() :
         this.patternComponent === 'paragraph' ? this.renderParagraph() :
@@ -62,4 +63,6 @@ export default class DscTypography extends LitElement {
   }
 }
 
-if (!customElements.get('dsc-typography')) { customElements.define('dsc-typography', DscTypography); }
+if (!customElements.get('dsc-typography')) { 
+  customElements.define('dsc-typography', DscTypography)
+}

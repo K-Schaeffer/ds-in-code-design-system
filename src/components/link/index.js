@@ -1,14 +1,14 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
-import style from './style.scss';
+import { LitElement, html, unsafeCSS } from 'lit'
+import { classMap } from 'lit/directives/class-map.js'
+import style from './link.scss'
 
 export default class DscLink extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  static get properties() {
+  static get properties () {
     return {
       href: { type: String },
       target: { type: String },
@@ -17,11 +17,12 @@ export default class DscLink extends LitElement {
   }
 
 
-  constructor() {
-    super();
-    this.href = '';
-    this.target = '';
-    this.disabled = false;
+  constructor () {
+    super()
+
+    this.href = ''
+    this.target = ''
+    this.disabled = false
   }
 
   get patternTarget() {
@@ -33,8 +34,8 @@ export default class DscLink extends LitElement {
       <a
         class="${
           classMap({
-              [`link`]: true,
-              [`link--disabled`]: this.disabled
+              [`dscLink`]: true,
+              [`dscLink--disabled`]: this.disabled
           })
         }"
         .target="${this.patternTarget}"
@@ -47,4 +48,6 @@ export default class DscLink extends LitElement {
   }
 }
 
-if (!customElements.get('dsc-link')) { customElements.define('dsc-link', DscLink);}
+if (!customElements.get('dsc-link')) { 
+  customElements.define('dsc-link', DscLink)
+}

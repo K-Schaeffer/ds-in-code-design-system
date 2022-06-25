@@ -19,7 +19,7 @@
     "build-storybook": "build-storybook",
     "test": "web-test-runner --node-resolve --puppeteer --coverage",
     "test:coverage": "web-test-runner --node-resolve --coverage",
-    "test:watch": "web-test-runner src/**/*.test.js --node-resolve --watch"
+    "testw": "web-test-runner src/**/*.test.js --node-resolve --watch"
   },
   "dependencies": {
     "ds-in-code-assets": "0.0.1",

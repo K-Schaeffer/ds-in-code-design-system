@@ -1,23 +1,25 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import style from './style.scss';
+import { LitElement, html, unsafeCSS } from 'lit'
+import style from './tag.scss'
 
 export default class DscTag extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  constructor() {
-    super();
+  constructor () {
+    super()
   }
 
-  render() {
+  render () {
     return html`
-      <span class="tag">
+      <span class="dscTag">
         <slot></slot>
       </span>
     `
   }
 }
 
-if (!customElements.get('dsc-tag')) { customElements.define('dsc-tag', DscTag); }
+if (!customElements.get('dsc-tag')) { 
+  customElements.define('dsc-tag', DscTag); 
+}

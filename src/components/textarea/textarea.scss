@@ -1,10 +1,10 @@
 @import 'ds-in-code-design-tokens/dist/scss/mixins.scss';
 
-
-.input-text{
+.dscTextarea {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+
   label {
     color: var(--neutral-elements-03);
     font-size: var(--font-size-xxs);
@@ -13,11 +13,13 @@
     line-height: var(--line-height-default);
     padding-bottom: var(--spacing-size-quarck);
   }
-  input{
+
+  textarea {
     background-color: transparent;
     border: var(--border-width-thin) solid var(--neutral-elements-03);
     border-radius: var(--border-radius-sm);
-    height: 48px;
+    height: 224px;
+    resize: none;
     padding: var(--spacing-inset-size-xs);
     box-sizing: border-box;
     color: var(--neutral-elements-03);
@@ -25,57 +27,61 @@
     font-family: var(--font-family-01);
     line-height: var(--line-height-default);
     font-weight: var(--font-weight-regular);
+
     @include motion-token(switch-slow, '&:hover');
+
     &::placeholder {
       color: var(--neutral-elements-02);
     }
-    &:focus{
+
+    &:focus {
       outline-width: 0;
       outline-color: var(--highlight-color-pure);
       outline-offset: var(--border-width-thin);
     }
-
   }
 
-  &:hover{
-    input {
+  &:hover {
+    textarea {
       background-color: var(--neutral-surface-02);
     }
   }
 
-  &--focus{
-    input{
+  &--focus {
+    textarea{
       &:focus{
         outline-width: var(--border-width-thin);
       }
     }
   }
 
-  &--error{
-    input{
+  &--error {
+    textarea {
       background-color: var(--feedback-color-warning-01);
       border-color: var(--feedback-color-warning-pure);
     }
   }
 
   &--disabled {
-    label{
+    label {
       color: var(--neutral-elements-01);
     }
-    input{
+    textarea {
       background-color: var(--neutral-surface-02);
       border-color: var(--neutral-elements-01);
       color: var(--neutral-elements-01);
+
       &::placeholder {
         color: var(--neutral-elements-01);
       }
     }
-    .input-text__helper-text {
+
+    .dscTextarea__helperText {
       color: var(--neutral-elements-01);
     }
   }
 
-  &__helper-text{
+  &__helperText{
     padding-top: var(--spacing-size-nano);
     color: var(--neutral-elements-03);
     font-size: var(--font-size-xxs);
@@ -83,6 +89,5 @@
     line-height: var(--line-height-default);
     font-weight: var(--font-weight-regular);
   }
-
 
 }

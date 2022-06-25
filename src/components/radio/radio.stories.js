@@ -1,6 +1,5 @@
-import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
+import { html } from 'lit'
+import { action } from '@storybook/addon-actions'
 import './index.js'
 import './radio-group.js'
 
@@ -16,21 +15,19 @@ export const Radio = ({
 
 
   function _handleChange(e) {
-    action('dscChange')({ value: e.detail.value });
+    action('dsc-change')({ value: e.detail.value });
 }
 
   return html`
     <dsc-radio-group
-      @dscChange="${(event) => _handleChange(event)}"
+      @dsc-change="${(event) => _handleChange(event)}"
     >
-
       <dsc-radio
         .label="${label}"
         value="Radio 1"
         checked
         ?disabled="${disabled}"
       ></dsc-radio>
-
       <dsc-radio
         .label="${label}"
         value="Radio 2"

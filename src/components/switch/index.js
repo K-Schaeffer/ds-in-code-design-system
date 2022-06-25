@@ -1,14 +1,14 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
-import style from './style.scss';
+import { LitElement, html, unsafeCSS } from 'lit'
+import { classMap } from 'lit/directives/class-map.js'
+import style from './switch.scss'
 
 export default class DscSwitch extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  static get properties() {
+  static get properties () {
     return {
       id: { type: String },
       name: { type: String },
@@ -19,51 +19,52 @@ export default class DscSwitch extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-    this.id = 'dsc-switch';
-    this.name = 'dsc-switch';
-    this.label = '';
-    this.checked = false;
-    this.required = false;
-    this.disabled = false;
+  constructor () {
+    super()
+
+    this.id = 'dsc-switch'
+    this.name = 'dsc-switch'
+    this.label = ''
+    this.checked = false
+    this.required = false
+    this.disabled = false
   }
 
-  get hiddenInput() {
-    return this.shadowRoot?.querySelector('input');
+  get hiddenInput () {
+    return this.shadowRoot?.querySelector('input')
   }
 
-  updated(changedProperties) {
+  updated (changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
         if (propName === 'checked' && oldValue !== undefined) {
-          this.hiddenInput.checked = this.checked;
-          this._handleDispatchEvent();
+          this.hiddenInput.checked = this.checked
+          this._handleDispatchEvent()
         }
-    });
+    })
   }
 
-  _handleChange() {
-    this.checked = !this.checked;
-    this._handleDispatchEvent();
+  _handleChange () {
+    this.checked = !this.checked
+    this._handleDispatchEvent()
   }
 
   _handleDispatchEvent = () => {
-    this.dispatchEvent(new CustomEvent('dscChange', {
+    this.dispatchEvent(new CustomEvent('dsc-change', {
       detail: {
           checked: this.checked
       },
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
   render() {
     return html`
       <label
         class="${classMap({
-          [`switch`]: true,
-          [`switch--checked`]: this.checked,
-          [`switch--disabled`]: this.disabled,
+          [`dscSwitch`]: true,
+          [`dscSwitch--checked`]: this.checked,
+          [`dscSwitch--disabled`]: this.disabled,
         })}"
         for="${this.name}"
       >
@@ -77,11 +78,13 @@ export default class DscSwitch extends LitElement {
           aria-checked=${this.checked}
           @change="${this._handleChange}"
         >
-        <span class="switch-checkmark"></span>
+        <span class="dscSwitch__checkmark"></span>
         ${this.label}
       </label>
     `
   }
 }
 
-if (!customElements.get('dsc-switch')) { customElements.define('dsc-switch', DscSwitch);}
+if (!customElements.get('dsc-switch')) { 
+  customElements.define('dsc-switch', DscSwitch)
+}

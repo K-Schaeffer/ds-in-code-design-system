@@ -1,6 +1,6 @@
 @import 'ds-in-code-design-tokens/dist/scss/mixins.scss';
 
-.radio {
+.dscRadio {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +14,7 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-default);
   color: var(--neutral-elements-03);
+
   // Hide native Radio
   input {
     position: absolute;
@@ -22,8 +23,9 @@
     height: 0;
     width: 0;
   }
+
   // Radio / Structure / Box
-  .radio-checkmark {
+  .dscRadio__checkmark {
     width: 16px;
     height: 16px;
     border: var(--border-width-thin) solid var(--neutral-elements-03);
@@ -32,34 +34,39 @@
 
     @include motion-token(switch-slow, '&:hover');
   }
+
   // Radio / State / Hover
-  &:hover:not(.radio--disabled):not(.radio--checked) {
-    .radio-checkmark {
+  &:hover:not(.dscRadio--disabled):not(.dscRadio--checked) {
+    .dscRadio__checkmark {
       background-color: var(--neutral-surface-02);
     }
   }
+
   // Radio / State / Selected
-  input:checked:not(:disabled) ~ .radio-checkmark {
+  input:checked:not(:disabled) ~ .dscRadio__checkmark {
     background-color: var(--brand-color-pure);
     border-color: var(--brand-color-pure);
     dsc-icon::part(icon){
       color: var(--contrast-color-brand);
     }
   }
+
   // Radio / State / Focused
-  input:focus-visible ~ .radio-checkmark {
+  input:focus-visible ~ .dscRadio__checkmark {
     outline-color: var(--highlight-color-pure);
     outline-width: var(--border-width-thin);
     outline-style: solid;
   }
+
   // Radio / State / Disabled
-  input:disabled ~ .radio-checkmark {
+  input:disabled ~ .dscRadio__checkmark {
     border-color: var(--neutral-elements-01);
     color: var(--neutral-elements-01);
     dsc-icon::part(icon){
       color: var(--neutral-elements-01);
     }
   }
+  
   &--disabled {
     color: var(--neutral-elements-01);
   }

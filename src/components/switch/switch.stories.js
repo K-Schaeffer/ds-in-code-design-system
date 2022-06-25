@@ -17,7 +17,7 @@ export const Switch = ({
 
   function _handleChange(e) {
     updateArgs({ checked: e.detail.checked });
-    action('dscChange')({ checked: e.detail.checked });
+    action('dsc-change')({ checked: e.detail.checked });
 }
 
   return html`
@@ -25,7 +25,7 @@ export const Switch = ({
       .label="${label}"
       ?checked="${checked}"
       ?disabled="${disabled}"
-      @dscChange="${(event) => _handleChange(event)}"
+      @dsc-change="${(event) => _handleChange(event)}"
     ></dsc-switch>
   `
 }

@@ -2,9 +2,7 @@ import { esbuildPlugin } from "@web/dev-server-esbuild";
 import { legacyPlugin } from '@web/dev-server-legacy';
 
 export default {
-  /** Test files to run */
-  files: 'src/**/*.test.js',
-
+  files: 'src/**/*.spec.js',
   plugins: [
     esbuildPlugin({
       loaders: {
@@ -16,8 +14,6 @@ export default {
     legacyPlugin({
       polyfills: {
         webcomponents: true,
-        // Inject lit's polyfill-support module into test files, which is required
-        // for interfacing with the webcomponents polyfills
         custom: [
           {
             name: 'lit-polyfill-support',
@@ -29,4 +25,4 @@ export default {
       },
     }),
   ]
-};
+}

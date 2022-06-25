@@ -1,6 +1,6 @@
 @import 'ds-in-code-design-tokens/dist/scss/mixins.scss';
 
-.switch{
+.dscSwitch {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +14,7 @@
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-default);
   color: var(--neutral-elements-03);
+
   // Hide native switch
   input {
     position: absolute;
@@ -22,8 +23,9 @@
     height: 0;
     width: 0;
   }
+
   // Switch / Structure / Box
-  .switch-checkmark {
+  .dscSwitch__checkmark {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -36,7 +38,7 @@
 
     @include motion-token(switch-slow, '&:hover');
 
-    &:after{
+    &:after {
       content: "";
       width: 16px;
       height: 16px;
@@ -44,38 +46,43 @@
       background-color: var(--neutral-elements-03);
     }
   }
+
   // Switch / State / Hover
-  &:hover:not(.switch--disabled):not(.switch--checked) {
-    .switch-checkmark {
+  &:hover:not(.dscSwitch--disabled):not(.dscSwitch--checked) {
+    .dscSwitch__checkmark {
       background-color: var(--neutral-surface-02);
     }
   }
 
   // Switch / State / Selected
-  input:checked ~ .switch-checkmark {
+  input:checked ~ .dscSwitch__checkmark {
     padding-left: calc(24px - 2px - var(--border-width-thin));
   }
-  input:checked:not(:disabled) ~ .switch-checkmark {
+
+  input:checked:not(:disabled) ~ .dscSwitch__checkmark {
     background-color: var(--brand-color-pure);
     border-color: var(--brand-color-pure);
     &:after{
       background-color: var(--contrast-color-brand);
     }
   }
+
   // Switch / State / Focused
-  input:focus-visible ~ .switch-checkmark {
+  input:focus-visible ~ .dscSwitch__checkmark {
     outline-color: var(--highlight-color-pure);
     outline-width: var(--border-width-thin);
     outline-style: solid;
   }
+
   // Switch / State / Disabled
-  input:disabled ~ .switch-checkmark {
+  input:disabled ~ .dscSwitch__checkmark {
     border-color: var(--neutral-elements-01);
     color: var(--neutral-elements-01);
     &:after{
       background-color: var(--neutral-elements-01);
     }
   }
+
   &--disabled {
     color: var(--neutral-elements-01);
   }

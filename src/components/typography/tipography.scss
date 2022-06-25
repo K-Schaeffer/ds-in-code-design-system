@@ -4,13 +4,14 @@ h1, h2, h3, h4, h5, h6, p, span {
   margin: 0;
 }
 
-.typography{
+.tipography {
   font-family: var(--font-family-01);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-default);
   color: var(--neutral-elements-03);
-  &-heading{
-    &--display{
+
+  &-heading {
+    &--display {
       font-size: var(--font-size-xxxl);
       @include breakpoint(tablet) {
         font-size: var(--font-size-xxxl);
@@ -22,7 +23,8 @@ h1, h2, h3, h4, h5, h6, p, span {
         font-size: var(--font-size-giant);
       }
     }
-    &--xl{
+
+    &--xl {
       font-size: var(--font-size-xxl);
       font-weight: var(--font-weight-bold);
       @include breakpoint(tablet) {
@@ -35,7 +37,8 @@ h1, h2, h3, h4, h5, h6, p, span {
         font-size: var(--font-size-xxxl);
       }
     }
-    &--lg{
+
+    &--lg {
       font-size: var(--font-size-xl);
       @include breakpoint(tablet) {
         font-size: var(--font-size-xl);
@@ -47,20 +50,25 @@ h1, h2, h3, h4, h5, h6, p, span {
         font-size: var(--font-size-xxl);
       }
     }
-    &--md{
+
+    &--md {
       font-size: var(--font-size-lg);
     }
-    &--sm{
+
+    &--sm {
       font-size: var(--font-size-md);
     }
-    &--xs{
+
+    &--xs {
       font-size: var(--font-size-xs);
     }
   }
-  &-paragraph{
+
+  &-paragraph {
     font-size: var(--font-size-xs);
     line-height: var(--line-height-lg);
   }
+
   &-caption{
     font-size: var(--font-size-xxs);
   }

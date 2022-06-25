@@ -1,5 +1,5 @@
 import { html } from 'lit'
-import { action } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions'
 import './index.js'
 
 export default {
@@ -20,15 +20,15 @@ export const Textarea = ({
 }) => {
 
   function _handleFocus() {
-    action('dscFocus')({ value: 'Focus event' });
+    action('dsc-focus')({ value: 'Focus event' });
   }
 
   function _handleBlur() {
-      action('dscBlur')({ value: 'Blur event' });
+      action('dsc-blur')({ value: 'Blur event' });
   }
 
   function _handleChange(e) {
-      action('dscChange')({ value: e.detail.value });
+      action('dsc-change')({ value: e.detail.value });
   }
 
   return html`
@@ -44,9 +44,9 @@ export const Textarea = ({
       ?error="${error}"
       ?autocomplete="${autocomplete}"
       .maxlength="${maxlength}"
-      @dscFocus="${_handleFocus}"
-      @dscBlur="${_handleBlur}"
-      @dscChange="${(event) => _handleChange(event)}"
+      @dsc-focus="${_handleFocus}"
+      @dsc-blur="${_handleBlur}"
+      @dsc-change="${(event) => _handleChange(event)}"
     ></dsc-textarea>
   `
 }
@@ -128,21 +128,21 @@ Textarea.argTypes = {
       }
   },
 
-  dscFocus: {
+  'dsc-focus': {
       description: 'Evento emitido ao dar focus no input text',
       table: {
           type: { summary: 'void' },
           category: 'Events'
       }
   },
-  dscBlur: {
+  'dsc-blur': {
       description: 'Evento emitido ao sair do input text',
       table: {
           type: { summary: 'void' },
           category: 'Events'
       }
   },
-  dscChange: {
+  'dsc-change': {
       description: 'Evento emitido ao alterar o valor do input text',
       table: {
           type: { summary: 'string' },

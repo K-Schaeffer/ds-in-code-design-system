@@ -1,16 +1,16 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
-import style from './style.scss';
-import bullet from 'ds-in-code-assets/dist/assets/icons/bullet';
+import { LitElement, html, unsafeCSS } from 'lit'
+import { classMap } from 'lit/directives/class-map.js'
+import style from './radio.scss'
+import bullet from 'ds-in-code-assets/dist/assets/icons/bullet'
 import '../icon'
 
 export default class DscRadio extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  static get properties() {
+  static get properties () {
     return {
       id: { type: String },
       name: { type: String },
@@ -23,38 +23,38 @@ export default class DscRadio extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-    this.index = 0;
-    this.value = '';
-    this.id = 'dsc-radio';
-    this.name = 'dsc-radio';
-    this.label = '';
-    this.checked = false;
-    this.required = false;
-    this.disabled = false;
+  constructor () {
+    super()
+
+    this.index = 0
+    this.value = ''
+    this.id = 'dsc-radio'
+    this.name = 'dsc-radio'
+    this.label = ''
+    this.checked = false
+    this.required = false
+    this.disabled = false
   }
 
-  get hiddenInput() {
-    return this.shadowRoot?.querySelector('input');
+  get hiddenInput () {
+    return this.shadowRoot?.querySelector('input')
   }
 
   updated(changedProperties) {
     changedProperties.forEach((oldValue, propName) => {
         if (propName === 'checked' && oldValue !== undefined) {
-          console.log(this.checked);
           this.hiddenInput.checked = this.checked;
         }
-    });
+    })
   }
 
-  _handleClick() {
-    this.checked = true;
-    this._handleDispatchEvent();
+  _handleClick () {
+    this.checked = true
+    this._handleDispatchEvent()
   }
 
   _handleDispatchEvent = () => {
-    this.dispatchEvent(new CustomEvent('dscChange', {
+    this.dispatchEvent(new CustomEvent('dsc-change', {
       detail: {
           checked: this.checked,
           index: this.index,
@@ -69,9 +69,9 @@ export default class DscRadio extends LitElement {
     return html`
       <label
         class="${classMap({
-          [`radio`]: true,
-          [`radio--checked`]: this.checked,
-          [`radio--disabled`]: this.disabled,
+          [`dscRadio`]: true,
+          [`dscRadio--checked`]: this.checked,
+          [`dscRadio--disabled`]: this.disabled,
         })}"
         for="${this.name}"
       >
@@ -86,7 +86,7 @@ export default class DscRadio extends LitElement {
           aria-checked=${this.checked}
           @click="${this._handleClick}"
         >
-        <span class="radio-checkmark">
+        <span class="dscRadio__checkmark">
           ${ this.checked ?
               html`<dsc-icon .icon="${bullet}" size="sm"></dsc-icon>`
             : null
@@ -98,4 +98,6 @@ export default class DscRadio extends LitElement {
   }
 }
 
-if (!customElements.get('dsc-radio')) { customElements.define('dsc-radio', DscRadio);}
+if (!customElements.get('dsc-radio')) { 
+  customElements.define('dsc-radio', DscRadio)
+}

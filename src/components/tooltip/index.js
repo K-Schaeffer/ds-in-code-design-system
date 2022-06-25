@@ -1,27 +1,28 @@
-import { LitElement, html, unsafeCSS } from "lit";
-import {classMap} from 'lit/directives/class-map.js';
-import style from './style.scss';
+import { LitElement, html, unsafeCSS } from 'lit'
+import {classMap} from 'lit/directives/class-map.js'
+import style from './tooltip.scss'
 
 export class DscTooltip extends LitElement {
 
-  static get styles() {
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
 }
 
-static get properties() {
+static get properties () {
     return {
         label: { type: String },
         placement: { type: String }
     }
   }
 
-  constructor() {
-    super();
-    this.label = '';
-    this.placement = '';
+  constructor () {
+    super()
+
+    this.label = ''
+    this.placement = ''
   }
 
-  get patternPlacement() {
+  get patternPlacement () {
     return [ 'bottom-end',
              'bottom-start',
              'bottom',
@@ -36,23 +37,24 @@ static get properties() {
              'top'
             ].includes(this.placement) ?
             this.placement :
-            'top';
+            'top'
   }
 
-  render() {
+  render () {
     return html`
         <div class="${
             classMap({
-                [`tooltip`]: true,
-                [`tooltip--${this.patternPlacement}`]: true
+                [`dscTooltip`]: true,
+                [`dscTooltip--${this.patternPlacement}`]: true
             })
         }">
-            <span class="tooltip__label">${this.label}</span>
+            <span class="dscTooltip__label">${this.label}</span>
             <slot></slot>
         </div>
-    `;
+    `
   }
-
 }
 
-if (!customElements.get('dsc-tooltip')) { customElements.define('dsc-tooltip', DscTooltip); }
+if (!customElements.get('dsc-tooltip')) { 
+  customElements.define('dsc-tooltip', DscTooltip)
+}

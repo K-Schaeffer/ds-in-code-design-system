@@ -24,31 +24,36 @@
   padding: 0 var(--spacing-size-xxs);
   background: var(--neutral-surface-01);
   height: 88px;
+
   @include breakpoint(tablet) {
     padding: 0 var(--spacing-size-sm);
     flex-wrap: nowrap;
   }
-  &-brand{
+
+  &-brand {
     @include breakpoint(tablet) {
       height: 100%;
       justify-content: center;
       align-items: center;
       display: flex;
     }
-    svg{
-      path{
+    svg {
+      path {
         fill: var(--fill-brand);
       }
     }
   }
+
   &-button {
     cursor: pointer;
     margin-left: auto;
     padding: var(--spacing-inset-size-xs);
+
     @include breakpoint(tablet) {
       display: none;
     }
   }
+
   &-nav{
     position: absolute;
     width: 100%;
@@ -58,6 +63,7 @@
     box-sizing: border-box;
     overflow: hidden;
     background: var(--neutral-surface-01);
+
     @include breakpoint(tablet) {
       padding: var(--spacing-inset-size-xs);
       width: fit-content;
@@ -69,6 +75,7 @@
       align-items: center;
     }
   }
+  
   &--opened{
     .header-nav{
       max-height: 100vh;

@@ -1,6 +1,6 @@
 @import 'ds-in-code-design-tokens/dist/scss/mixins.scss';
 
-.link {
+.dscLink {
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -24,24 +24,28 @@
 
     @include motion-token(switch-slow, '&:hover');
   }
+
   // Link / State / Hover
-  &:hover{
-    &::after{
+  &:hover {
+    &::after {
       width: 50%;
     }
   }
+
   // Link / State / Focused
-  &:focus{
+  &:focus {
     outline-color: var(--highlight-color-pure);
     outline-width: var(--border-width-thin);
     outline-style: solid;
   }
+
   // Link / State / Disabled
-  &--disabled{
+  &--disabled {
     pointer-events: none;
     cursor: default;
     color: var(--neutral-elements-01);
-    &::after{
+
+    &::after {
       background-color: var(--neutral-elements-01);
     }
   }

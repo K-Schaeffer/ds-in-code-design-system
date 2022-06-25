@@ -1,14 +1,14 @@
 import { LitElement, html, unsafeCSS } from 'lit'
-import {classMap} from 'lit/directives/class-map.js';
-import style from './style.scss';
+import {classMap} from 'lit/directives/class-map.js'
+import style from './textarea.scss'
 
 export class DscTextarea extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  static get properties() {
+  static get properties () {
     return {
       id: { type: String },
       name: { type: String },
@@ -24,54 +24,55 @@ export class DscTextarea extends LitElement {
     }
   }
 
-  constructor() {
-    super();
-    this.id = '';
-    this.name = '';
-    this.value = '';
-    this.label = '';
-    this.placeholder = '';
-    this.helperText = '';
-    this.required = '';
-    this.disabled = '';
-    this.error = '';
-    this.autocomplete = false;
-    this.maxlength = '';
+  constructor () {
+    super()
+
+    this.id = ''
+    this.name = ''
+    this.value = ''
+    this.label = ''
+    this.placeholder = ''
+    this.helperText = ''
+    this.required = ''
+    this.disabled = ''
+    this.error = ''
+    this.autocomplete = false
+    this.maxlength = ''
   }
 
-  get inputTextContainer() {
-    return this.shadowRoot.querySelector('.textarea');
+  get inputTextContainer () {
+    return this.shadowRoot.querySelector('.dscTextarea')
 }
 
-  _handleFocus() {
-    this.dispatchEvent(new CustomEvent('dscFocus', {
+  _handleFocus () {
+    this.dispatchEvent(new CustomEvent('dsc-focus', {
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
-  _handleBlur() {
-    this.inputTextContainer.classList.remove('textarea--focus');
-    this.dispatchEvent(new CustomEvent('dscBlur', {
+  _handleBlur () {
+    this.inputTextContainer.classList.remove('dscTextarea--focus')
+    this.dispatchEvent(new CustomEvent('dsc-blur', {
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
-  _handleChange(event) {
-    this.value = event.target.value;
-    this.dispatchEvent(new CustomEvent('dscChange', {
+  _handleChange (event) {
+    this.value = event.target.value
+    this.dispatchEvent(new CustomEvent('dsc-change', {
       detail: {
         value: this.value
       },
       bubbles: true,
       composed: true
-    }));
+    }))
   }
 
-  _handleKeyup(event) {
+  _handleKeyup (event) {
     if (event.code === 'Tab') {
-      this.inputTextContainer.classList.add('textarea--focus');
+      this.inputTextContainer.classList.add('dscTextarea--focus')
     }
   }
 
@@ -80,9 +81,9 @@ export class DscTextarea extends LitElement {
     return html`
       <div class="${
         classMap({
-          [`textarea`]: true,
-          [`textarea--disabled`]: this.disabled,
-          [`textarea--error`]: this.error
+          [`dscTextarea`]: true,
+          [`dscTextarea--disabled`]: this.disabled,
+          [`dscTextarea--error`]: this.error
         })}"
         @keyup="${(event) => this._handleKeyup(event)}"
       >
@@ -100,7 +101,7 @@ export class DscTextarea extends LitElement {
           @blur="${this._handleBlur}"
           @input="${(event) => this._handleChange(event)}"
         ></textarea>
-        <span class="textarea__helper-text">
+        <span class="dscTextArea__helperText">
           ${this.helperText}
         </span>
       </div>
@@ -108,4 +109,6 @@ export class DscTextarea extends LitElement {
   }
 }
 
-if (!customElements.get('dsc-textarea')) { customElements.define('dsc-textarea', DscTextarea); }
+if (!customElements.get('dsc-textarea')) { 
+  customElements.define('dsc-textarea', DscTextarea)
+}

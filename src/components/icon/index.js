@@ -18,6 +18,7 @@ export default class DscIcon extends LitElement {
 
   constructor () {
     super()
+    
     this.size = ''
     this.icon = ""
   }

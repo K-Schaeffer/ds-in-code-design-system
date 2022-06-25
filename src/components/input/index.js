@@ -1,14 +1,14 @@
 import { LitElement, html, unsafeCSS } from 'lit'
-import {classMap} from 'lit/directives/class-map.js';
-import style from './style.scss';
+import {classMap} from 'lit/directives/class-map.js'
+import style from './input.scss'
 
 export class DscInputText extends LitElement {
 
-  static get styles(){
-    return unsafeCSS(style);
+  static get styles () {
+    return unsafeCSS(style)
   }
 
-  static get properties() {
+  static get properties () {
     return {
       id: { type: String },
       name: { type: String },
@@ -25,7 +25,8 @@ export class DscInputText extends LitElement {
   }
 
   constructor() {
-    super();
+    super ()
+
     this.id = '';
     this.name = '';
     this.value = '';
@@ -40,19 +41,19 @@ export class DscInputText extends LitElement {
   }
 
   get inputTextContainer() {
-    return this.shadowRoot.querySelector('.input-text');
+    return this.shadowRoot.querySelector('.dscInputText');
 }
 
   _handleFocus() {
-    this.dispatchEvent(new CustomEvent('dscFocus', {
+    this.dispatchEvent(new CustomEvent('dsc-focus', {
       bubbles: true,
       composed: true
     }));
   }
 
   _handleBlur() {
-    this.inputTextContainer.classList.remove('input-text--focus');
-    this.dispatchEvent(new CustomEvent('dscBlur', {
+    this.inputTextContainer.classList.remove('dscInputText--focus');
+    this.dispatchEvent(new CustomEvent('dsc-blur', {
       bubbles: true,
       composed: true
     }));
@@ -60,7 +61,7 @@ export class DscInputText extends LitElement {
 
   _handleChange(event) {
     this.value = event.target.value;
-    this.dispatchEvent(new CustomEvent('dscChange', {
+    this.dispatchEvent(new CustomEvent('dsc-change', {
       detail: {
         value: this.value
       },
@@ -71,7 +72,7 @@ export class DscInputText extends LitElement {
 
   _handleKeyup(event) {
     if (event.code === 'Tab') {
-      this.inputTextContainer.classList.add('input-text--focus');
+      this.inputTextContainer.classList.add('dscInputText--focus');
     }
   }
 
@@ -80,9 +81,9 @@ export class DscInputText extends LitElement {
     return html`
       <div class="${
         classMap({
-          [`input-text`]: true,
-          [`input-text--disabled`]: this.disabled,
-          [`input-text--error`]: this.error
+          [`dscInputText`]: true,
+          [`dscInputText--disabled`]: this.disabled,
+          [`dscInputText--error`]: this.error
         })}"
         @keyup="${(event) => this._handleKeyup(event)}"
       >
@@ -101,7 +102,7 @@ export class DscInputText extends LitElement {
           @blur="${this._handleBlur}"
           @input="${(event) => this._handleChange(event)}"
         />
-        <span class="input-text__helper-text">
+        <span class="dscInputText__helperText">
           ${this.helperText}
         </span>
       </div>
@@ -109,4 +110,6 @@ export class DscInputText extends LitElement {
   }
 }
 
-if (!customElements.get('dsc-input-text')) { customElements.define('dsc-input-text', DscInputText); }
+if (!customElements.get('dsc-input-text')) { 
+  customElements.define('dsc-input-text', DscInputText)
+}
